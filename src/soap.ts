@@ -116,7 +116,7 @@ export async function sendSoapRequest<T, R>(
     });
     const soapEnvelope = deserializeSoapResponse(response.data);
     return soapEnvelope.value.body.any[0].value as R;
-  } catch (error) {
+  } catch (error: any) {
     if (error.response) {
       // Non 20x response
       const soapEnvelope = deserializeSoapResponse(error.response.data);
